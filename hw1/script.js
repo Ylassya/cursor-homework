@@ -58,3 +58,5 @@ const templateString = `Максимальна ціна: ${maxPrice};
 Чистий прибуток: ${sellerProfit};`
 console.log(templateString);
 
+document.writeln(templateString);
+
