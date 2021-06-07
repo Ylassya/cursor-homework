@@ -12,13 +12,14 @@ const sumPrice = ELECTRIC_SCOOTER + LASER_PROJECTOR + PLASMA_TV;
 console.log(sumPrice);
 
 const priceWithoutCoins = Math.trunc(ELECTRIC_SCOOTER) + Math.trunc(LASER_PROJECTOR) + Math.trunc(PLASMA_TV);
-console.log(priceWithoutCoins);
+const roundingMin = Math.floor(priceWithoutCoins);
+console.log(roundingMin);
 
 const sumPriceRounded = Math.round(sumPrice / 100) * 100;
 console.log(sumPriceRounded);
 
-function evenOrOdd(priceWithoutCoins) {
-    if(priceWithoutCoins%2==0)
+function evenOrOdd(roundingMin) {
+    if(roundingMin%2==0)
         return true;
     else
         return false;
@@ -38,16 +39,18 @@ console.log(sale + '%');
 const priceWithSale = Math.round((sumPrice - sale)*100)/100;
 console.log(priceWithSale);
 
+const saleInMoney = Math.round((sumPrice - priceWithSale)*100)/100;
+
 const sellerPrice = Math.round((sumPrice/2)*100)/100;
 console.log(sellerPrice);
 
-const sellerProfit = Math.round((sellerPrice - sale)*100)/100;
+const sellerProfit = Math.round((sellerPrice - saleInMoney)*100)/100;
 console.log(sellerProfit);
 
 const templateString = `Максимальна ціна: ${maxPrice};    
 Мінімальна ціна: ${minPrice};
 Вартість всіх товарів: ${sumPrice};
-Сума всіх товарів без копійок: ${priceWithoutCoins};
+Сума всіх товарів без копійок: ${roundingMin};
 Сума всіх товарів заокруглена до сотень: ${sumPriceRounded};
 Чи парна сума всіх товарів без копійок: ${evenOrOdd(priceWithoutCoins)};
 Решта з 500грн: ${rest};
