@@ -2,63 +2,60 @@ const ELECTRIC_SCOOTER = 15.678;
 const LASER_PROJECTOR = 123.965;
 const PLASMA_TV = 90.2345;
 
-const maxPrice = Math.max(ELECTRIC_SCOOTER,LASER_PROJECTOR,PLASMA_TV);
-console.log(maxPrice);
+const maxPriceGadgets = Math.max(ELECTRIC_SCOOTER,LASER_PROJECTOR,PLASMA_TV);
+console.log('maxPriceGadgets', maxPriceGadgets);
 
-const minPrice = Math.min(ELECTRIC_SCOOTER,LASER_PROJECTOR,PLASMA_TV);
-console.log(minPrice);
+const minPriceGadgets = Math.min(ELECTRIC_SCOOTER,LASER_PROJECTOR,PLASMA_TV);
+console.log('minPriceGadgets', minPriceGadgets);
 
-const sumPrice = ELECTRIC_SCOOTER + LASER_PROJECTOR + PLASMA_TV;
-console.log(sumPrice);
+const sumPriceGadgets = ELECTRIC_SCOOTER + LASER_PROJECTOR + PLASMA_TV;
+console.log('sumPriceGadgets', sumPriceGadgets);
 
 const priceWithoutCoins = Math.trunc(ELECTRIC_SCOOTER) + Math.trunc(LASER_PROJECTOR) + Math.trunc(PLASMA_TV);
 const roundingMin = Math.floor(priceWithoutCoins);
-console.log(roundingMin);
+console.log('roundingMin', roundingMin);
 
-const sumPriceRounded = Math.round(sumPrice / 100) * 100;
-console.log(sumPriceRounded);
+const sumPriceRounded = Math.round(sumPriceGadgets / 100) * 100;
+console.log('sumPriceRounded', sumPriceRounded);
 
-function evenOrOdd(roundingMin) {
-    if(roundingMin%2==0)
-        return true;
-    else
-        return false;
-   }
-console.log(evenOrOdd(priceWithoutCoins));
+const isEven = priceWithoutCoins % 2 === 0;
+console.log('isEven', isEven);
 
 const CASH = 500;
-const rest = CASH - sumPrice;
-console.log(rest);
+const rest = CASH - sumPriceGadgets;
+console.log('rest', rest);
 
-const arithmeticMean = Math.round((sumPrice/3)*100)/100;
-console.log(arithmeticMean);
+const arithmeticMean = Math.round((sumPriceGadgets/3)*100)/100;
+console.log('arithmeticMean', arithmeticMean);
 
 const sale = Math.round(Math.random() * 99) + 1;
-console.log(sale + '%');
+console.log('sale', sale + '%');
 
-const priceWithSale = Math.round((sumPrice - sale)*100)/100;
-console.log(priceWithSale);
+const priceWithSale = Math.round((sumPriceGadgets / 100 * sale)*100)/100;
+console.log('priceWithSale', priceWithSale);
 
-const saleInMoney = Math.round((sumPrice - priceWithSale)*100)/100;
+const saleInMoney = Math.round((sumPriceGadgets - priceWithSale)*100)/100;
 
-const sellerPrice = Math.round((sumPrice/2)*100)/100;
-console.log(sellerPrice);
+const sellerPrice = Math.round((sumPriceGadgets/2)*100)/100;
+console.log('sellerPrice', sellerPrice);
 
 const sellerProfit = Math.round((sellerPrice - saleInMoney)*100)/100;
-console.log(sellerProfit);
+console.log('sellerProfit', sellerProfit);
 
-const templateString = `Максимальна ціна: ${maxPrice};    
-Мінімальна ціна: ${minPrice};
-Вартість всіх товарів: ${sumPrice};
-Сума всіх товарів без копійок: ${roundingMin};
-Сума всіх товарів заокруглена до сотень: ${sumPriceRounded};
-Чи парна сума всіх товарів без копійок: ${evenOrOdd(priceWithoutCoins)};
-Решта з 500грн: ${rest};
-Середнє арифметичне усіх цін: ${arithmeticMean};
-Знижка Покупця:${sale + '%'};
-Сума до сплати зі знижкою: ${priceWithSale};
-Собівартість товарів: ${sellerPrice};
-Чистий прибуток: ${sellerProfit};`
+const templateString = `
+  Максимальна ціна: ${maxPriceGadgets};    
+  Мінімальна ціна: ${minPriceGadgets};
+  Вартість всіх товарів: ${sumPriceGadgets};
+  Сума всіх товарів без копійок: ${roundingMin};
+  Сума всіх товарів заокруглена до сотень: ${sumPriceRounded};
+  Чи парна сума всіх товарів без копійок: ${isEven};
+  Решта з 500грн: ${rest};
+  ереднє арифметичне усіх цін: ${arithmeticMean};
+  Знижка Покупця:${sale + '%'};
+  Сума до сплати зі знижкою: ${priceWithSale};
+  Собівартість товарів: ${sellerPrice};
+  Чистий прибуток: ${sellerProfit};
+`
 console.log(templateString);
 
 document.writeln(templateString);
