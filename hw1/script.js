@@ -1,17 +1,17 @@
-const ELECTRIC_SCOOTER = 15.678;
-const LASER_PROJECTOR = 123.965;
-const PLASMA_TV = 90.2345;
+const electricScooter = 15.678;
+const laserProjector = 123.965;
+const plasmaTv = 90.2345;
 
-const maxPriceGadgets = Math.max(ELECTRIC_SCOOTER,LASER_PROJECTOR,PLASMA_TV);
+const maxPriceGadgets = Math.max(electricScooter,laserProjector,plasmaTv);
 console.log('maxPriceGadgets', maxPriceGadgets);
 
-const minPriceGadgets = Math.min(ELECTRIC_SCOOTER,LASER_PROJECTOR,PLASMA_TV);
+const minPriceGadgets = Math.min(electricScooter,laserProjector,plasmaTv);
 console.log('minPriceGadgets', minPriceGadgets);
 
-const sumPriceGadgets = ELECTRIC_SCOOTER + LASER_PROJECTOR + PLASMA_TV;
+const sumPriceGadgets = electricScooter + laserProjector + plasmaTv;
 console.log('sumPriceGadgets', sumPriceGadgets);
 
-const priceWithoutCoins = Math.trunc(ELECTRIC_SCOOTER) + Math.trunc(LASER_PROJECTOR) + Math.trunc(PLASMA_TV);
+const priceWithoutCoins = Math.trunc(electricScooter) + Math.trunc(laserProjector) + Math.trunc(plasmaTv);
 const roundingMin = Math.floor(priceWithoutCoins);
 console.log('roundingMin', roundingMin);
 
